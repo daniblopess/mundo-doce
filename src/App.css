@@ -17,7 +17,7 @@ body{
 .Top-header {
   display: flex;
   align-items: center;
-  font: 700 35px Roboto, sans-serif;
+  font: 700 18px Roboto, sans-serif;
   color: white;
   background-color: #e60014;
   padding: 20px 40px;
