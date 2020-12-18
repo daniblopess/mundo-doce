@@ -1,0 +1,50 @@
+[
+    {
+       "id":1,
+       "nome":"Balas de Amora Fini",
+       "preco":5.0,
+       "imagem":"amora"
+    },
+    {
+       "id":2,
+       "nome":"Balas de Dentadura Fini",
+       "preco":4.5,
+       "imagem":"dentadura"
+    },
+    {
+       "id":3,
+       "nome":"Balas de Melancia Fini",
+       "preco":5,
+       "imagem":"melancia"
+    },
+    {
+       "id":4,
+       "nome":"Balas Ice-Cream Fini",
+       "preco":4.75,
+       "imagem":"ice-cream"
+    },
+    {
+       "id":5,
+       "nome":"Chocolate Suflair",
+       "preco":5.2,
+       "imagem":"suflair"
+    },
+    {
+       "id":6,
+       "nome":"Chocolate Crunch",
+       "preco":6.0,
+       "imagem":"crunch"
+    },
+    {
+       "id":7,
+       "nome":"KitKat White",
+       "preco":4.50,
+       "imagem":"kitkat-white"
+    },
+    {
+       "id":8,
+       "nome":"Caixa Nestlé",
+       "preco":18.0,
+       "imagem":"caixa-nestle"
+    }
+ ]
