@@ -1,73 +1,38 @@
-import amora from './assets/amora.png';
+import { useEffect, useState } from 'react';
+
+const urlServer = "http://localhost/server"
+
+async function getDataFetch(){    
+    const response = await fetch(`${urlServer}/getProdutos.php`,
+        { headers: {'Content-Type': 'application/json'}})
+    
+    return response.json();
+}
 
 function MainPage(){
+    const [produtos, setProdutos] = useState([])
+    
+    useEffect(() => {
+        getDataFetch().then(response => {            
+            setProdutos(response.produtos)            
+        })
+    }, [])
+
+    const todosProdutos = produtos?.map(item => (
+        <div className="card" key={item.id}>
+            <img src={`${urlServer}/imgs/${item.imagem}.png`} className="card-img-top text-center" alt={item.nome} />
+            <div className="card-body">
+                <h6 className="card-title">{item.nome}</h6>                    
+                <p className="card-text">R$ {item.preco.toFixed(2)}</p>                    
+            </div>
+        </div>                                                                                
+    ));
+        
     return (
         <main className="main">            
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
-
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
-
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
-
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
-
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
-
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
-
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
-
-            <div className="card">
-                <img src={amora} className="card-img-top text-center" alt="Balas de Amora Fini" />
-                <div className="card-body">
-                    <h6 className="card-title">Balas de Amora Fini</h6>                    
-                    <p className="card-text">R$ 5,00</p>                    
-                </div>
-            </div>                               
+            {todosProdutos}
         </main>
     )
 }
-
+    
 export default MainPage;
